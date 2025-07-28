@@ -26,6 +26,7 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/jspsych.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: iPortfolio
@@ -78,13 +79,53 @@
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <h2>丁钰洋 | YUYANG DING</h2>
         <p>Hi there, I'm a PhD candidate in Experimental Psychology at UCL.</p>
-        <p><i>The site is still under development. Stay tuned!!</i></p>
         <p class="footnote" style="font-size: 10px;">Photo taken by <a href="https://timmossholder.com/" class="btn-get-started scrollto">Tim Mossholder</a></p>
       </div>
 
 
     </section><!-- /Hero Section -->
 
+    <!-- Research Section -->
+    <section id="research" class="portfolio section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Research</h2>
+        <p>My current research focuses on the psychology and cognition basis of financial decision making.</p>
+        <p>Specifically, I investigate investor behaviour through online experiments. I leverage computational modelling (e.g., Drift Diffusion Model) to uncover the cognitive basis of individual financial decisions.</p>
+        <p>Below are some of the research projects I am currently working on.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="portfolio-item">
+            <div class="portfolio-info">
+              <h4>Revisit the Disposition Effect under Uncertainty</h4>
+              <p>The Disposition Effect (<b>DE</b>) is one of the most stable and widely discussed "behaviour biases" in the field of behavioural finance. In <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1540-6261.1985.tb05002.x?msockid=37b013b325656d21360a075724636ca1">Statman and Shefrin's (1985)</a> original paper, they use the term <b>DE</b> to describe such a pattern: "investors sell the winner too early and ride the losers for too long". </p>
+              <p>Existing works on <b>DE</b> mostly rely on the prospect theory and consider the decision-making process behind <b>DE</b> a risk choice task (where the probability and possibility of the outcomes are explicitly described, such as the gamble tasks in <a href="https://www.jstor.org/stable/1914185?searchText=prospect+theory+kahneman&searchUri=%2Faction%2FdoBasicSearch%3FQuery%3Dprospect%2Btheory%2B%252B%2Bkahneman%26so%3Drel&ab_segments=0%2Fbasic_search_gsv2%2Fcontrol&refreqid=fastly-default%3Aca3427fd17cefa803f610379c17c6ad1">Kahneman and Tversky, 1970</a>). We revisit the <b>DE</b> under different situations: certain risks vs. uncertainty using our novel real-time trading paradigm. </p>
+              <p>We found that <b>DE</b> only exists in the situation of uncertainty and can be reversed when the risks are explicitly described. Using the hierarchical drift diffusion models, we found that such difference is associated with the difference in the information process efficiency.</p>
+              <p><i><b>Y., Ding</b>, M., Speekenbrink.(in prep.) Revisit the Disposition Effect: A Novel Real-time Trading Paradigm.</i></p>
+            </div>
+          </div><!-- End Portfolio Item -->
+
+          <div class="portfolio-item">
+            <div class="portfolio-info">
+              <h4>Contrast the perceptual and financial decision-making</h4>
+              <p>Imagine the following task: there are two urns with green and red balls, there are 40 green balls and 60 red balls in one urn and 60 green balls and 40 red balls in the other. An experimenter continuously draw balls from an urn and the participant's task is to figure out whether this urn is the green-dominated one or the red-dominated one.</p>
+              <p>Real life financial decision-making (e.g., stock investment) shares mostly the same perception with such a perceptual decision-making task. Then, the question is: if such tasks are equivalent, how and why do people perform differently in these tasks?</p>
+              <p>We compared the participants' behaviour and cognition while facing two similar real-time perceptual decision-making tasks with almost everything the same except for the scenarios.</p>
+              <p>We found the financial choices were significantly slower and less accurate than the perceptual choices. Computational models reveal asymmetrical information processing efficiency in buying vs. selling but not in detecting upward trends vs. downward trends.</p>
+              <p><i><b>Y., Ding</b>, D., Goncalves, M., Speekenbrink. (oral presentation.) Perceptual vs. Financial Choices: Behavioural and cognitive contrasts. Experimental Psychology Society London Meeting 2025</i></p>
+              <p><i><b>Y., Ding</b>, D., Goncalves, M., Speekenbrink. (poster presentation.) Watch out for Bears: Do People Behave Differently in Perceptual and Financial Decisions? CogSci 2025, Cognitive Science Society</i></p>
+            </div>
+          </div><!-- End Portfolio Item -->
+
+        </div>
+
+      </div>
+    </section><!-- /Research Section -->
     <!-- Resume Section -->
     <section id="cv" class="resume section">
 
@@ -112,9 +153,9 @@
             <h3 class="resume-title">Education</h3>
             <div class="resume-item">
               <h4>Ph.D. in Experimental Psychology</h4>
-              <h5>2022 - 2026 (expected)</h5>
+              <h5>2022 - Early 2026 (expected)</h5>
               <p><em>University College London, London, UK</em></p>
-              <p>Research: study on the psychology and cognition basis of financial decision making, supervised by <a href="https://speekenbrink-lab.github.io/"> Maarten Speekenbrink </a> and <a href="https://duartegoncalves.com/"> Duarte Gonçalves</a>.</p>
+              <p><ul><li>Research: study on the psychology and cognition basis of financial decision making, supervised by <a href="https://speekenbrink-lab.github.io/"> Maarten Speekenbrink </a> and <a href="https://duartegoncalves.com/"> Duarte Gonçalves</a>.</p></li></ul>
             </div><!-- Edn Resume Item -->
 
             <div class="resume-item">
@@ -134,7 +175,7 @@
               <ul>
                 <li>Research: study on insider trading and information processing.</li>
                 <li>Dissertation: Research on the tunnelling effect of inside information in listed companies</li>
-                <li>Core modules: Advanced microeconomics for management; Research method for management science</li>
+                <li>Core modules: Advanced microeconomics for management science; Econometrics for management science</li>
               </ul>
             </div>
 
@@ -158,9 +199,9 @@
               <h5>2022 - Present</h5>
               <p><em>University College London, London, UK </em></p>
               <ul>
-                <li>Supervise undergraduate and MSc students’ research projects (project duration: 3-6 month). Responsibilities include regularly supervising the students' study; teaching the students necessary coding skills, and providing feedbacks;</li>
+                <li>Supervise 8 undergraduate and MSc students’ research projects (project duration: 3-6 months). Responsibilities include conducting weekly supervision of the students' study; conducting short workshops to teach the students necessary coding and analysis skills, and providing feedbacks on their works;</li>
                 <li>Demonstrate for undergraduate level modules, topics including: manipulating data and conducting statistical analyses using R; conducting psychological studies with both in-lab and online experiments; writting up scientific reports;</li>
-                <li>Assess and provide feedback for undergraduate and MSc level modules, topics including statistics; design and run psychological studies; and business and social psychology</li>
+                <li>Assess and provide feedback for assignments of undergraduate and MSc level modules, topics including statistics; design and run psychological studies; and business and social psychology</li>
               </ul>
             </div><!-- Edn Resume Item -->
             <div class="resume-item">
@@ -169,9 +210,9 @@
               <p><em>Jilin University, Changchun, China</em></p>
               <ul>
                 <li>Participate in a consultant project for CRRC Changchun-Alstom, one of the largest railway train manufacturers in China</li>
-                <li>Forecast the prices trends of metals using LSTM to assist the preparation of tenders for CRRC-Alstom in their Singapore LTA’s underground system project </li>
-                <li>Collaborate with other PhD students and staff from CRRC Changchun-Alstom</li>
-                <li>Write up research reports to support CRRC-Alstom’s decision-making and pricing strategy</li>
+                <li>Forecast the trends of metal prices using LSTM to assist the preparation of tenders for CRRC-Alstom in their Singapore LTA’s underground system project </li>
+                <li>Lead a team with another PhD candidate at Jilin University to collaborate with staff from CRRC Changchun-Alstom</li>
+                <li>Write up a <b>15-pages</b> research report to support CRRC-Alstom’s decision-making and pricing strategy</li>
               </ul>
             </div><!-- Edn Resume Item -->
             <div class="resume-item">
@@ -179,9 +220,8 @@
               <h5>2017 - 2018</h5>
               <p><em>No.5 Middle School of Korla, Korla, China</em></p>
               <ul>
-                <li>Develop and gave Chinese history lectures to Grade 7 classes;</li>
-                <li>Organise remote communication and sharing sessions between undergraduates and local students </li>
-                <li>Maintain regular communications with some students until now</li>
+                <li>Develop and gave Chinese history lectures to five classes (~250 students);</li>
+                <li>Organise online seminars for undergraduates from Jilin University to share their experience with local students </li>
               </ul>
             </div><!-- Edn Resume Item -->
 
@@ -199,43 +239,24 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Demo</h2>
-        <p>I conducted online behavioural experiments to investigate the psychological and cognitive basis of human decision-making in a financial context.</p><p> Here are some demos of the previous experiments.</p>
+        <p>I conduct online behavioural experiments to investigate the psychological and cognitive basis of human decision-making in a financial context.</p>
+        <p>These web-based experiments were mainly developed using JavaScript/HTML/CSS, especially with the <a href="https://www.jspsych.org/latest/">JsPsych</a> framework.</p>
+        <p>Here are some demos of the previous experiments:</p>
       </div><!-- End Section Title -->
 
-      <div class="container">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Real-time Trends Detection Task</h4>
-                  <p>How do people process information in stock price?</p>
-                  <a href="assets/img/portfolio/app-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="demo-trends-detection.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Real-time Repeated Investment Task</h4>
-                  <p>How do people make investment decisions?</p>
-                  <a href="assets/img/portfolio/product-1.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="demo-trends-detection.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-          </div><!-- End Portfolio Container -->
-
+      <div class="container demo-container">
+        <div class="portfolio-info">
+          <h4>Demo: Real-time Trading Game</h4>
+          <p>In this task, you take the role of a trader. You start a trial with either some shares or some funds. At any time point, you can either sell all your shares or purchase as many shares as possible using your funds.</p>
+          <p>The trial ends at a fixed time point, and your performance is measured by the difference between the value of your account at the beginning and the end of the trial.</p>
         </div>
-
+        <div id="demo-screenshot-container">
+          <img src="assets/img/demo-screen-1.png" alt="Demo Screenshot" class="demo-screenshot" style="width: 300px; height:auto; margin: 0 auto; display: block;">
+        </div>
+        <button onclick="window.open('./demo-trends-detection.html', '_blank').focus();" class="jspsych-btn demo-restart-button"
+        style="margin-top: 16px; padding: 8px 16px; font-size: 16px; cursor: pointer;">
+          Open the Demo in a New Tab
+        </button>
       </div>
 
     </section><!-- /Portfolio Section -->
