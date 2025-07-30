@@ -42,15 +42,24 @@
 
     const welcome = {
       type: jsPsychHtmlButtonResponse,
-      stimulus: '<h1>Welcome to my experiment!</h1><p>In this experiment, you will take the role of a trading specialist.</p><p>Your task is to figure out whether the stock price is going upward or downward and make trading decisions to maximise your income.</p><p>You can register your decision by pressing <b>P (Buy)</b> or <b>Q (Sell)</b>.</p><p>Good luck!</p>',
+      stimulus: '<h1>Welcome to the Real-time Trading Game!</h1><p>In this experiment, you will take the role of a trading specialist.</p><p>Your task is to figure out whether the stock price is going upward or downward and make trading decisions accordingly to maximise your income.</p><p>You will play the game for 5 rounds.</p><p>You can register your decision by pressing <b>P (Buy)</b> or <b>Q (Sell)</b>.</p><p>Your data will NOT be collected or stored.</p><p>Good luck!</p>',
       choices: ['Start'],
     };
 
-    const trial = {
-      type: RealTimeInvestFast,
-    };
+    let timeline = [welcome]
 
-    jsPsych.run([welcome, trial]);
+    for(let i = 0; i < 5; i ++){
+      let trial = {
+        type: RealTimeInvestFast,
+        seed: "PRACTICE" + (i + 1),
+        change_rate: ((Math.random() > 0.5)?0.6:0.4)
+      }
+      trial.seed = "DEMO" + i
+      timeline.push(trial)
+    }    
+
+    jsPsych.run(timeline)
+    
   </script>
 
 </body>
