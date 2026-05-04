@@ -1,15 +1,1189 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>Cavalry Bank, a UXR project of a mobile banking app</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Cavalry Bank: a UX Research Case Study</title>
+  <meta content="UX Research project on mobile banking app design and usability" name="description">
+  <meta content="UX research, mobile banking, usability testing, design iteration" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    /* Cavalry Bank Case Study Custom Styles */
+    .case-study-hero {
+      background: linear-gradient(135deg, #1a7c5f 0%, #0f5a47 100%);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .case-study-hero h2 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .case-study-hero p {
+      font-size: 20px;
+      opacity: 0.95;
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    .overview-card {
+      background: var(--surface-color);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+      border-left: 4px solid var(--accent-color);
+    }
+
+    .overview-card h4 {
+      color: var(--accent-color);
+      font-weight: 700;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .overview-card .icon {
+      font-size: 40px;
+      color: var(--accent-color);
+      margin-bottom: 15px;
+    }
+
+    .problem-goal-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin: 40px 0;
+      align-items: stretch;
+    }
+
+    .problem-goal-box {
+      background: var(--surface-color);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .problem-goal-box h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--default-color);
+    }
+
+    .problem-goal-box h3.problem {
+      color: #c85a54;
+    }
+
+    .problem-goal-box h3.goal {
+      color: var(--accent-color);
+    }
+
+    .metric-card {
+      text-align: center;
+      padding: 20px;
+      background: var(--surface-color);
+      border-radius: 8px;
+    }
+
+    .metric-icon {
+      font-size: 40px;
+      color: var(--accent-color);
+      margin-bottom: 10px;
+    }
+
+    .metric-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--default-color);
+      margin-bottom: 5px;
+    }
+
+    .metric-label {
+      font-size: 14px;
+      color: var(--default-color);
+      opacity: 0.7;
+    }
+
+    .persona-card {
+      background: var(--surface-color);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+      border-top: 4px solid var(--accent-color);
+      margin: 30px 0;
+    }
+
+    .user-flow-chart {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+    }
+
+    .lofi-gallery {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    .lofi-gallery-item {
+      display: block;
+    }
+
+    .lofi-gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      display: block;
+    }
+
+    .hifi-gallery {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    .hifi-gallery-item {
+      display: block;
+    }
+
+    .hifi-gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      display: block;
+    }
+
+    .persona-header {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 20px;
+      margin-bottom: 30px;
+      align-items: start;
+    }
+
+    .persona-icon {
+      width: 100px;
+      height: 100px;
+      background: var(--accent-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 50px;
+      color: white;
+    }
+
+    .persona-image {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent-color);
+      flex-shrink: 0;
+    }
+
+    .persona-info h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .persona-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin: 20px 0;
+    }
+
+    .persona-details h4 {
+      grid-column: 1 / -1;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-top: 20px;
+    }
+
+    .journey-step {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent-color);
+      margin: 15px 0;
+    }
+
+    .journey-step h4 {
+      color: var(--accent-color);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .journey-step strong {
+      display: block;
+      margin-top: 12px;
+      margin-bottom: 8px;
+    }
+
+    .test-result-card {
+      text-align: center;
+      padding: 20px;
+      background: var(--surface-color);
+      border-radius: 8px;
+    }
+
+    .test-result-title {
+      font-weight: 700;
+      margin-bottom: 15px;
+      font-size: 16px;
+      color: var(--default-color);
+    }
+
+    .test-metric {
+      margin: 15px 0;
+      padding: 10px;
+      background: white;
+      border-radius: 6px;
+    }
+
+    .test-metric-label {
+      font-size: 12px;
+      color: var(--default-color);
+      opacity: 0.7;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .test-metric-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+
+    .pain-points {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .pain-point-card {
+      background: var(--surface-color);
+      padding: 25px;
+      border-radius: 8px;
+      border-top: 4px solid #c85a54;
+    }
+
+    .pain-point-number {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: #c85a54;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .pain-point-card h4 {
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--default-color);
+    }
+
+    .figma-section {
+      background: var(--surface-color);
+      padding: 40px;
+      border-radius: 8px;
+      margin: 40px 0;
+    }
+
+    .figma-section h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .figma-inline-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 100%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .figma-inline-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .figma-button-group {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .btn-figma {
+      display: inline-block;
+      padding: 12px 30px;
+      background: var(--accent-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .btn-figma:hover {
+      background: #0d5a47;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-figma-secondary {
+      background: transparent;
+      border: 2px solid var(--accent-color);
+      color: var(--accent-color);
+    }
+
+    .btn-figma-secondary:hover {
+      background: var(--accent-color);
+      color: white;
+    }
+
+    .modal-figma {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-figma.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content-figma {
+      background-color: white;
+      width: 90%;
+      height: 90vh;
+      border-radius: 8px;
+      position: relative;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .modal-close-figma {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--default-color);
+      cursor: pointer;
+      background: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1001;
+      transition: all 0.2s ease;
+    }
+
+    .modal-close-figma:hover {
+      background: #f0f0f0;
+      transform: scale(1.1);
+    }
+
+    .modal-content-figma iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .takeaway-box {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent-color);
+      margin: 20px 0;
+      line-height: 1.8;
+    }
+
+    .takeaway-box h4 {
+      color: var(--accent-color);
+      font-weight: 700;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .case-study-hero h2 {
+        font-size: 32px;
+      }
+
+      .problem-goal-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .persona-details {
+        grid-template-columns: 1fr;
+      }
+
+      .overview-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .figma-button-group {
+        flex-direction: column;
+      }
+
+      .btn-figma {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
-<body>
+
+<body class="portfolio-details-page">
+
+  <header id="header" class="header dark-background d-flex flex-column">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <div class="profile-img">
+      <img src="assets/img/my-profile.jpg" alt="" class="img-fluid rounded-circle">
+    </div>
+
+    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+      <h1 class="sitename">YUYANG's HOME</h1>
+    </a>
+
+    <div class="social-links text-center">
+      <a href="mailto:yy.ding.22@ucl.ac.uk" class="twitter"><i class="bi bi-envelope"></i></a>
+      <a href="https://github.com/ding9889" class="twitter"><i class="bi bi-github"></i></a>
+      <a href="https://www.linkedin.com/in/yuyang-ding-141996252/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="index.html"><i class="bi bi-house navicon"></i>Home</a></li>
+        <li><a href="index.html#research"><i class="bi bi-box-seam navicon"></i> Research</a></li>
+        <li><a href="index.html#cv"><i class="bi bi-file-earmark-person navicon"></i> CV </a></li>
+        <li><a href="index.html#demo"><i class="bi bi-joystick navicon"></i> Demo</a></li>
+        <li><a href="index.html#aboutme"><i class="bi bi-person navicon"></i> About me</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Cavalry Bank</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Cavalry Bank Case Study</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Case Study Hero -->
+    <section class="case-study-hero" data-aos="fade-up">
+      <div class="container">
+        <h2>Cavalry Bank: A Mobile Banking App</h2>
+        <p>Understanding Users with Different Cultural Backgrounds and Their Experience with Mobile Banking</p>
+      </div>
+    </section>
+
+    <!-- Project Overview Section -->
+    <section class="section">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Project Overview</h2>
+          <p>Product, Duration, Role & Responsibilities</p>
+        </div>
+
+        <div class="overview-grid">
+          <div class="overview-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon"><i class="bi bi-bank"></i></div>
+            <h4>The Product</h4>
+            <p>Cavalry Bank is a fictional mobile banking app based primarily on a leading UK bank. Users can manage their bank accounts, view card information, and make transfers within the app.</p>
+          </div>
+
+          <div class="overview-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon"><i class="bi bi-clock-history"></i></div>
+            <h4>Project Duration</h4>
+            <p>January 2026 - April 2026</p>
+          </div>
+
+          <div class="overview-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon"><i class="bi bi-person-badge"></i></div>
+            <h4>My Role</h4>
+            <p>UX Researcher</p>
+          </div>
+
+          <div class="overview-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="icon"><i class="bi bi-list-check"></i></div>
+            <h4>Responsibilities</h4>
+            <p>User research, Prototyping, and Usability Testing</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Background, Problem, and Goal Section -->
+    <section class="section light-background">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Background & Challenge</h2>
+          <p>Understanding the Context and Defining the Problem</p>
+        </div>
+
+        <div class="mb-5" data-aos="fade-up">
+          <h4 style="color: var(--accent-color); margin-bottom: 20px;">Background</h4>
+          <p>UK banks are changing. Instead of visiting a local branch, many users prefer managing their finances on their phone. High street banks launched their mobile banking apps and have continuously improved the user experience over the past decade. However, while managing personal finance on a smartphone sounds convenient, not everyone is comfortable with it.</p>
+          <p>After a first glance and comparing to competitors, there seem to be several areas for improvement.</p>
+        </div>
+
+        <div class="problem-goal-wrapper" data-aos="fade-up">
+          <div class="problem-goal-box">
+            <h3 class="problem"><i class="bi bi-exclamation-circle"></i> The Problem</h3>
+            <ul>
+              <li>Most functions are hidden deeply under accordion menus and/or require multiple steps to access</li>
+              <li>Some pages have unclear instructions</li>
+              <li>Consequence of clicking certain buttons tend to be unpredictable</li>
+            </ul>
+          </div>
+
+          <div class="problem-goal-box">
+            <h3 class="goal"><i class="bi bi-star-fill"></i> The Goal</h3>
+            <p>Make sure users can use the product to manage their money <strong>safely</strong>, <strong>confidently</strong>, and <strong>seamlessly</strong>.</p>
+            <p style="margin-top: 20px;">This should at least include:</p>
+            <ul>
+              <li>Opening, viewing, and closing accounts</li>
+              <li>Viewing card details</li>
+              <li>Making bank transfers</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- User Research Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Understanding the User</h2>
+          <p>Personas and User Journey Maps</p>
+        </div>
+
+        <div data-aos="fade-up">
+          <p>I began by emphasising my users: "How would I use this app? How would I feel about the user flow?". By writing down the user journey map, several potential pain points emerged.</p>
+          <p>Focusing on users with particular characteristics, a usability test was conducted with <strong>5 participants</strong> from my personal network to test whether users can manage their individual finance smoothly with Cavalry Bank and understand their pain points.</p>
+        </div>
+
+        <!-- Persona Section -->
+        <div class="persona-card" data-aos="fade-up">
+          <div class="persona-header">
+            <img src="assets/img/portfolio/persona-may.png" alt="Persona May" class="persona-image">
+            <div class="persona-info">
+              <h3>May Zou</h3>
+              <p style="font-size: 16px; font-style: italic; color: var(--accent-color);">"The banking system seems different here, I need to figure out how to manage my money safely."</p>
+            </div>
+          </div>
+
+          <div class="persona-details">
+            <div>
+              <strong>Age:</strong> 23
+            </div>
+            <div>
+              <strong>Education:</strong> Master's Degree
+            </div>
+            <div>
+              <strong>Hometown:</strong> Tianjin, China
+            </div>
+            <div>
+              <strong>Family:</strong> Single
+            </div>
+            <div>
+              <strong>Occupation:</strong> Full-time Student
+            </div>
+            <div></div>
+
+            <h4>Background</h4>
+            <p>May is a 23-year-old international student from China who recently moved to the UK to pursue her master's degree. Her English is academic-fluent, and she has good digital skills. However, she's not very familiar with the banking system here, nor those jargons (what is a "standing-order"?)</p>
+
+            <h4>Needs & Pain Points</h4>
+            <div>
+              <strong>Goals:</strong>
+              <ul style="margin: 10px 0;">
+                <li>Apply for a new current account to manage her money without visiting a local branch</li>
+                <li>Make bank transfers and manage accounts smoothly and flawlessly</li>
+              </ul>
+            </div>
+            <div>
+              <strong>Frustrations:</strong>
+              <ul style="margin: 10px 0;">
+                <li>Not familiar with terms and jargon widely used in the British banking industry</li>
+                <li>Anxious about taking the wrong move - "What if I didn't pay my tuition fee to the correct account?"</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- User Journey Section -->
+        <div style="margin-top: 40px;">
+          <h3 style="margin-bottom: 30px;" data-aos="fade-up">May's User Journey: Opening a UK Account</h3>
+
+          <div class="row">
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="journey-step">
+                <h4>Step 1: Determination</h4>
+                <strong>Actions:</strong> Review daily financial behaviors; Assess if a UK bank account is necessary
+                <strong>Emotions:</strong> "I have a credit card issued by my bank in China, but not sure if I can use it for all my expenses. There are also too many different banks..."
+                <strong style="color: var(--accent-color);">Improvement:</strong> A mobile banking app with essential functionalities clearly presented, so users can easily figure out if their needs can be met.
+              </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="journey-step">
+                <h4>Step 2: Discovery & Selection</h4>
+                <strong>Actions:</strong> Download the app; Register a user account; Research account options
+                <strong>Emotions:</strong> "I'm lost and confused. It wasn't easy to find the 'open a new account' button..."
+                <strong style="color: var(--accent-color);">Improvement:</strong> Avoid hiding critical functionalities in deep menus. Put customizable shortcuts on the homepage.
+              </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+              <div class="journey-step">
+                <h4>Step 3: Application</h4>
+                <strong>Actions:</strong> Select prospected account; Fill out eligibility questions
+                <strong>Emotions:</strong> "There are TOO many questions; some of them are confusing..."
+                <strong style="color: var(--accent-color);">Improvement:</strong> Only ask necessary questions and provide detailed guidelines accessible right next to relevant blanks.
+              </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+              <div class="journey-step">
+                <h4>Step 4: Agreement & Next</h4>
+                <strong>Actions:</strong> Agree to Terms & Conditions; Sign required documents
+                <strong>Emotions:</strong> "Wait, what happened? I clicked on 'Agree', and now it's finished. Where is the final confirmation?"
+                <strong style="color: var(--accent-color);">Improvement:</strong> A final confirmation with all relevant details presented clearly is needed.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testing the Design Section -->
+    <section class="section light-background">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Testing the Design</h2>
+        </div>
+
+        <div data-aos="fade-up" style="margin-bottom: 40px;">
+          <p>Thanks to the variety of financial services provided by banks, modern mobile banking apps tend to feature tons of functions. However, a mobile banking app should essentially be something people use to manage their personal finances.</p>
+          <p>I replicated the key user interface of the mobile banking app in Figma and focused testing on key functionalities: <strong>account management</strong>, <strong>payment</strong>, and <strong>card management</strong>.</p>
+        </div>
+
+        <h4 style="margin-top: 40px; margin-bottom: 30px;" data-aos="fade-up">Test Methodology</h4>
+
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="metric-card">
+              <div class="metric-icon"><i class="bi bi-people-fill"></i></div>
+              <div class="metric-value">5</div>
+              <div class="metric-label">Participants</div>
+              <p style="font-size: 13px; margin-top: 10px;">Current and Prospective International students new to UK or haven't lived there before</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="metric-card">
+              <div class="metric-icon"><i class="bi bi-clock"></i></div>
+              <div class="metric-value">30 min</div>
+              <div class="metric-label">Per Session</div>
+              <p style="font-size: 13px; margin-top: 10px;">Moderated usability test</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="metric-card">
+              <div class="metric-icon"><i class="bi bi-list-task"></i></div>
+              <div class="metric-value">3</div>
+              <div class="metric-label">Main Tasks</div>
+              <p style="font-size: 13px; margin-top: 10px;">Account, card, transfer</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="metric-card">
+              <div class="metric-icon"><i class="bi bi-graph-up"></i></div>
+              <div class="metric-value">3</div>
+              <div class="metric-label">KPIs Tracked</div>
+              <p style="font-size: 13px; margin-top: 10px;">Time, errors, SUS score</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lo-fi prototype gallery -->
+        <div class="lofi-gallery" data-aos="fade-up">
+          <div class="section-title">
+            <h3>Lo-Fidelity Screens</h3>
+            <p>Screenshots of low-fidelity prototypes used in the initial usability tests. Click <a href="https://www.figma.com/proto/Imqn07HYtYpf4QjY5YoazJ/Lo-Fi-Before?node-id=0-457&t=cecwd5Nj6f94xCqI-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=0%3A457" target="_blank" rel="noopener noreferrer" title="Open the Lo-Fi Figma prototype">here</a> to view the interactive Figma prototype.</p>
+          </div>
+
+          <div class="row row-cols-2 row-cols-md-4 g-3 align-items-start">
+            <div class="col">
+              <div class="lofi-gallery-item">
+                <img src="assets/img/portfolio/lo-fi-1.png" alt="Lo-fi screen 1">
+              </div>
+            </div>
+            <div class="col">
+              <div class="lofi-gallery-item">
+                <img src="assets/img/portfolio/lo-fi-2.png" alt="Lo-fi screen 2">
+              </div>
+            </div>
+            <div class="col">
+              <div class="lofi-gallery-item">
+                <img src="assets/img/portfolio/lo-fi-3.png" alt="Lo-fi screen 3">
+              </div>
+            </div>
+            <div class="col">
+              <div class="lofi-gallery-item">
+                <img src="assets/img/portfolio/lo-fi-4.png" alt="Lo-fi screen 4">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4 style="margin-top: 50px; margin-bottom: 30px;" data-aos="fade-up">1st Round Usability Test</h4>
+        <p>As planned, I measured the design through participants' speed, error/dropoff rate, and usability scales. The results highlighted several areas for improvement:</p>
+
+        <div class="row g-4">
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="test-result-card">
+              <div class="test-result-title">Open an Account</div>
+              <div class="test-metric">
+                <div class="test-metric-label">Time</div>
+                <div class="test-metric-value">~8.6 min</div>
+              </div>
+              <div class="test-metric">
+                <div class="test-metric-label">Error Rate</div>
+                <div class="test-metric-value">5/5 failed in first attempt</div>
+              </div>
+              <div class="test-metric">
+                <div class="test-metric-label">Difficulty</div>
+                <div class="test-metric-value">8/10</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="test-result-card">
+              <div class="test-result-title">View Card Details</div>
+              <div class="test-metric">
+                <div class="test-metric-label">Time</div>
+                <div class="test-metric-value">~1.5 min</div>
+              </div>
+              <div class="test-metric">
+                <div class="test-metric-label">Error Rate</div>
+                <div class="test-metric-value">0/5 failed in first attempt</div>
+              </div>
+              <div class="test-metric">
+                <div class="test-metric-label">Difficulty</div>
+                <div class="test-metric-value">2.4/10</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="test-result-card">
+              <div class="test-result-title">Bank Transfer</div>
+              <div class="test-metric">
+                <div class="test-metric-label">Time</div>
+                <div class="test-metric-value">~4.5 min</div>
+              </div>
+              <div class="test-metric">
+                <div class="test-metric-label">Error Rate</div>
+                <div class="test-metric-value">1/5 lost in first attempt</div>
+              </div>
+              <div class="test-metric">
+                <div class="test-metric-label">Safety</div>
+                <div class="test-metric-value">6.8/10</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4 style="margin-top: 50px; margin-bottom: 30px;" data-aos="fade-up">User Flows</h4>
+        Everyone complained about the buried functions and the overwhelming user flow, especially for opening an account. So, I write down the user flow for opening an account to better understand the problem and identify key pain points. 
+        <div>
+          <img src="assets/img/portfolio/user-flow-chart.png" alt="User flow chart" class="user-flow-chart" data-aos="fade-up">
+        </div>
+
+        <h4 style="margin-top: 50px; margin-bottom: 30px;" data-aos="fade-up">Key Pain Points Identified</h4>
+
+        <div class="pain-points" data-aos="fade-up">
+          <div class="pain-point-card">
+            <div class="pain-point-number">1</div>
+            <h4>Hidden Functionalities</h4>
+            <p>Functions hidden under complex menus. Users need multiple clicks to find the entrance.</p>
+          </div>
+
+          <div class="pain-point-card">
+            <div class="pain-point-number">2</div>
+            <h4>Too Many Options</h4>
+            <p>Too many account types provided in a single screen, overwhelming users.</p>
+          </div>
+
+          <div class="pain-point-card">
+            <div class="pain-point-number">3</div>
+            <h4>Unclear Consequences</h4>
+            <p>Users feel unsure about the consequence of actions. "Agree" button immediately completes without review.</p>
+          </div>
+
+          <div class="pain-point-card">
+            <div class="pain-point-number">4</div>
+            <h4>Missing Security</h4>
+            <p>No authentication before critical actions like viewing card PIN or confirming transfers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Refining the Design Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Refining the Design</h2>
+        </div>
+
+        <div data-aos="fade-up" style="margin-bottom: 40px;">
+          <p>Based on the pain points identified, I created several potential design solutions with pen & paper. The key improvements included:</p>
+          <ul style="margin-top: 20px;">
+            <li><strong>Add customizable shortcuts</strong> on the homepage to make frequent functions instantly accessible</li>
+            <li><strong>Replace "Agree" with "Submit"</strong> + checkbox to highlight submission consequence</li>
+            <li><strong>Add an account advisor</strong> to help users find the right account through a brief questionnaire</li>
+            <li><strong>Auto-add quick payment shortcuts</strong> on pay & transfer page for faster access</li>
+            <li><strong>Add final verification</strong> with PIN or FaceID before confirming transfers</li>
+          </ul>
+        </div>
+
+        <h4 style="margin-top: 50px; margin-bottom: 30px;" data-aos="fade-up">Key Improvements</h4>
+
+        <!-- Hi-Fi prototype gallery -->
+        <div class="hifi-gallery" data-aos="fade-up">
+          <div class="section-title">
+            <h3>High-Fidelity Screens (Refined Design)</h3>
+            <p>High-fidelity prototype screenshots showcasing the improved design solutions.</p>
+          </div>
+
+          <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3 align-items-start">
+            <div class="col">
+              <div class="hifi-gallery-item">
+                <img src="assets/img/portfolio/hi-fi-1.png" alt="Hi-fi screen 1">
+              </div>
+            </div>
+            <div class="col">
+              <div class="hifi-gallery-item">
+                <img src="assets/img/portfolio/hi-fi-2.png" alt="Hi-fi screen 2">
+              </div>
+            </div>
+            <div class="col">
+              <div class="hifi-gallery-item">
+                <img src="assets/img/portfolio/hi-fi-3.png" alt="Hi-fi screen 3">
+              </div>
+            </div>
+            <div class="col">
+              <div class="hifi-gallery-item">
+                <img src="assets/img/portfolio/hi-fi-4.png" alt="Hi-fi screen 4">
+              </div>
+            </div>
+            <div class="col">
+              <div class="hifi-gallery-item">
+                <img src="assets/img/portfolio/hi-fi-5.png" alt="Hi-fi screen 5">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4 style="margin-top: 50px; margin-bottom: 30px;" data-aos="fade-up">2nd Round Usability Test</h4>
+
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="test-result-card">
+              <div class="test-result-title">Open an Account</div>
+              <div class="test-metric">
+                <div class="test-metric-label">Time</div>
+                <div class="test-metric-value">~4.6 min</div>
+              </div>
+              <div class="test-metric">
+                <div class="test-metric-label">Error Rate</div>
+                <div class="test-metric-value">0/5 failed</div>
+              </div>
+              <div class="test-metric">
+                <div class="test-metric-label">Difficulty</div>
+                <div class="test-metric-value">6.2/10</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="test-result-card">
+              <div class="test-result-title">View Card Details</div>
+              <div class="test-metric">
+                <div class="test-metric-label">Time</div>
+                <div class="test-metric-value">~1.5 min</div>
+              </div>
+              <div class="test-metric">
+                <div class="test-metric-label">Error Rate</div>
+                <div class="test-metric-value">0/5 failed</div>
+              </div>
+              <div class="test-metric">
+                <div class="test-metric-label">Difficulty</div>
+                <div class="test-metric-value">2.2/10</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="test-result-card">
+              <div class="test-result-title">Bank Transfer</div>
+              <div class="test-metric">
+                <div class="test-metric-label">Time</div>
+                <div class="test-metric-value">~4.1 min</div>
+              </div>
+              <div class="test-metric">
+                <div class="test-metric-label">Error Rate</div>
+                <div class="test-metric-value">0/5 failed</div>
+              </div>
+              <div class="test-metric">
+                <div class="test-metric-label">Safety SUS</div>
+                <div class="test-metric-value">8.0/10</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p style="text-align: center; margin-top: 40px; font-style: italic; color: var(--default-color);" data-aos="fade-up">
+          <strong>Improvement Summary:</strong> Task time reduced by 46%, all error rates eliminated, and safety perception increased from 6.8 to 8.0 out of 10.
+        </p>
+      </div>
+    </section>
+
+    <!-- Figma Prototype Section -->
+    <section class="section light-background">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Interactive Prototype</h2>
+        </div>
+
+        <div class="figma-section" data-aos="fade-up">
+          <p style="text-align: center; margin-bottom: 30px; font-size: 16px;">
+            Below is the interactive high-fidelity prototype built in Figma. You can explore the design improvements, user flows, and design solutions.
+          </p>
+
+          <div class="figma-inline-wrapper" id="figmaInline">
+            <iframe title="Cavalry Bank Hi-Fi Prototype"
+              src="https://filter-chef-36153058.figma.site">
+            </iframe>
+          </div>
+
+          <div class="figma-button-group">
+            <a href="https://www.figma.com/file/G92iN6YM3flVWG0yp9n1km/Hi-fi-prototype---after" target="_blank" rel="noopener noreferrer"
+              class="btn-figma btn-figma-secondary">
+              <i class="bi bi-box-arrow-up-right"></i> View in Figma
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Figma Modal -->
+    <div id="figmaModal" class="modal-figma">
+      <div class="modal-content-figma">
+        <button class="modal-close-figma" onclick="closeFigmaModal()">×</button>
+        <iframe id="figmaModalIframe" title="Cavalry Bank Hi-Fi Prototype Full View"
+          src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FG92iN6YM3flVWG0yp9n1km%2FHi-fi-prototype---after%3Fnode-id%3D0%253A1%26t%3DRtSKEQq2scBmJFDG-1">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Going Forward Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Going Forward</h2>
+        </div>
+
+        <h3 style="margin-top: 40px; margin-bottom: 30px;" data-aos="fade-up">Key Takeaways</h3>
+
+        <div class="takeaway-box" data-aos="fade-up" data-aos-delay="100">
+          <h4><i class="bi bi-lightbulb"></i> Mobile Banking is Special</h4>
+          <p>For a mobile bank, it's almost inevitable that a significant amount of functions are zipped into a single app, and users' behavior and preferences can vary largely. For apps like mobile banks which feature too many functions, it is better to allow users to create shortcuts to their frequently-used functions, rather than trying to highlight certain features for everyone.</p>
+        </div>
+
+        <div class="takeaway-box" data-aos="fade-up" data-aos-delay="200">
+          <h4><i class="bi bi-shield-check"></i> Safety is King, But How Safe is Safe?</h4>
+          <p>Safety is the top requirement of a banking app, but users may have different levels of safety requirements. A UK user might find it normal to enter password only once at login. This can be scary for someone who lived elsewhere and recently moved to the UK. It's important to empathize with users from different backgrounds who may have different expectations and needs regarding security.</p>
+        </div>
+
+        <div class="takeaway-box" data-aos="fade-up" data-aos-delay="300">
+          <h4><i class="bi bi-shuffle"></i> Experience-Business Trade Off</h4>
+          <p>While banks want to advertise their products (e.g., premier accounts), users can get overwhelmed by too many options. Presenting 5 different accounts at once may not be optimal. Instead of filling users' screens with various products, it's better to use a brief questionnaire or LLMs to help users find the accounts they need.</p>
+        </div>
+
+        <h3 style="margin-top: 50px; margin-bottom: 30px;" data-aos="fade-up">Next Steps</h3>
+
+        <div class="takeaway-box" data-aos="fade-up" data-aos-delay="100">
+          <h4>Filling Forms is Exhausting</h4>
+          <p>Even with shortcuts on the homepage, the long account-opening procedure remains challenging. The 10-step process is necessary for legal and eligibility verification, but the next iteration should explore: is it possible to simplify the procedure for applicants to a basic-level account?</p>
+        </div>
+
+        <div class="takeaway-box" data-aos="fade-up" data-aos-delay="200">
+          <h4>Beyond Account-Opening</h4>
+          <p>The challenges found in account opening apply to many other functions. Since users may only open one or two accounts but use other functions more frequently, it's important to iterate over other functions and provide smooth, safe user experiences across the entire app.</p>
+        </div>
+
+        <div class="takeaway-box" data-aos="fade-up" data-aos-delay="300">
+          <h4><i class="bi bi-robot"></i> AI + UX?</h4>
+          <p>As a side note from this project: LLMs can significantly improve the prototyping workflow. Start with lo-fi sketches or wireframes with details, send them to Figma's AI features with clear prompts, and you'll get near-production-ready hi-fi prototypes in minutes. With basic TypeScript knowledge or comfortable AI-assisted coding, you can build highly polished prototypes. LLMs are becoming one of the most powerful tools in UX design workflows.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer position-relative light-background">
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">iPortfolio</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Figma Modal Scripts -->
+  <script>
+    function openFigmaModal() {
+      const modal = document.getElementById('figmaModal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeFigmaModal() {
+      const modal = document.getElementById('figmaModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    window.addEventListener('click', function (event) {
+      const modal = document.getElementById('figmaModal');
+      if (event.target === modal) {
+        closeFigmaModal();
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        closeFigmaModal();
+      }
+    });
+  </script>
 
 </body>
+
 </html>
