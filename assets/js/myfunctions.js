@@ -74,6 +74,54 @@ function plus_minus_1(prob1, step_len) {
     };
 };
 
+function plus_minus_k(V, p, h) {
+    //generate a random number between 0 and 1
+    const random = Math.random();
+    // Loop through the outcomes and compare the random number to their probabilities
+    if (random < p) {
+        return V + h;
+    }
+    else {
+        return V - h;
+    };
+};
+
+// V = value at time t; p = probability of increasing; h = step size
+function geo_plus_minus_k(V, p, h) {
+    //generate a random number between 0 and 1
+    const random = Math.random();
+    // Loop through the outcomes and compare the random number to their probabilities
+    if (random < p) {
+        return (1 + h)*V;
+    }
+    else {
+        return (1 - h)*V;
+    };
+};
+
+function get_candle(n_draws = 2, last_close, method, gbm_args) {
+    // if (n_draws < 2) {
+    //     throw new Error("At least 2 draws are needed.");
+    // }
+    var draw = [];
+    for (var i = 0; i < n_draws; i++) {
+        if (method == "BM") {
+            draw.push(plus_minus_k(last_close, gbm_args[0], gbm_args[1]));
+            last_close = draw[draw.length - 1];
+        } else if (method == "GBM") {
+            draw.push(geo_plus_minus_k(last_close, gbm_args[0], gbm_args[1]));
+            last_close = draw[draw.length - 1];
+        } else {
+            throw new Error("Unknown method.");
+        }
+    }
+    var open = draw[0];
+    var close = draw[draw.length - 1];
+    var high = Math.max(...draw);
+    var low = Math.min(...draw);
+    return [open, close, high, low];
+}
+
 function getSelectedValues() {
     const selectedValues = [];
     const questions = document.querySelectorAll('.question');

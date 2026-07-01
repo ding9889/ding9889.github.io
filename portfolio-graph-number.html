@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Research Project: Does a Graph Worth a Thousand Words?</title>
+  <meta content="Research project investigating the impact of graphical representations on investor decision-making" name="description">
+  <meta content="Investor behaviour, regret, information representation" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+  <style>
+    .case-study-hero {
+      background: linear-gradient(135deg, #000000 0%, grey 100%);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .case-study-hero h2 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .case-study-hero p {
+      font-size: 20px;
+      opacity: 0.95;
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    .overview-card {
+      background: var(--surface-color);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+      border-left: 4px solid var(--accent-color);
+    }
+
+    .overview-card h4 {
+      color: var(--accent-color);
+      font-weight: 700;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .overview-card .icon {
+      font-size: 40px;
+      color: var(--accent-color);
+      margin-bottom: 15px;
+    }
+
+    .problem-goal-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin: 40px 0;
+      align-items: stretch;
+    }
+
+    .problem-goal-box {
+      background: var(--surface-color);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .problem-goal-box h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--default-color);
+    }
+
+    .problem-goal-box h3.problem {
+      color: #c85a54;
+    }
+
+    .problem-goal-box h3.goal {
+      color: var(--accent-color);
+    }
+
+    .metric-card {
+      text-align: center;
+      padding: 20px;
+      background: var(--surface-color);
+      border-radius: 8px;
+      box-sizing: border-box;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .metric-icon {
+      font-size: 40px;
+      color: var(--accent-color);
+      margin-bottom: 10px;
+    }
+
+    .metric-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--default-color);
+      margin-bottom: 5px;
+    }
+
+    .metric-label {
+      font-size: 14px;
+      color: var(--default-color);
+      opacity: 0.7;
+    }
+
+    .persona-card {
+      background: var(--surface-color);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+      border-top: 4px solid var(--accent-color);
+      margin: 30px 0;
+    }
+
+    .user-flow-chart {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+    }
+
+    .paper-wireframe {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+    }
+
+    .lofi-gallery {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    .lofi-gallery-item {
+      display: block;
+    }
+
+    .lofi-gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      display: block;
+    }
+
+    .hifi-gallery {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    .hifi-gallery-item {
+      display: block;
+    }
+
+    .hifi-gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      display: block;
+    }
+
+    .persona-header {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 20px;
+      margin-bottom: 30px;
+      align-items: start;
+    }
+
+    .persona-icon {
+      width: 100px;
+      height: 100px;
+      background: var(--accent-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 50px;
+      color: white;
+    }
+
+    .persona-image {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent-color);
+      flex-shrink: 0;
+    }
+
+    .persona-info h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .persona-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin: 20px 0;
+    }
+
+    .persona-details h4 {
+      grid-column: 1 / -1;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-top: 20px;
+    }
+
+    .journey-step {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent-color);
+      margin: 15px 0;
+    }
+
+    .journey-step h4 {
+      color: var(--accent-color);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .journey-step strong {
+      display: block;
+      margin-top: 12px;
+      margin-bottom: 8px;
+    }
+
+    .test-result-card {
+      text-align: center;
+      padding: 20px;
+      background: var(--surface-color);
+      border-radius: 8px;
+    }
+
+    .test-result-title {
+      font-weight: 700;
+      margin-bottom: 15px;
+      font-size: 16px;
+      color: var(--default-color);
+    }
+
+    .test-metric {
+      margin: 15px 0;
+      padding: 10px;
+      background: white;
+      border-radius: 6px;
+    }
+
+    .test-metric-label {
+      font-size: 12px;
+      color: var(--default-color);
+      opacity: 0.7;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .test-metric-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+
+    .pain-points {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .pain-point-card {
+      background: var(--surface-color);
+      padding: 25px;
+      border-radius: 8px;
+      border-top: 4px solid #c85a54;
+    }
+
+    .pain-point-number {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: #c85a54;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .pain-point-card h4 {
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--default-color);
+    }
+
+    .figma-section {
+      background: var(--surface-color);
+      padding: 40px;
+      border-radius: 8px;
+      margin: 40px 0;
+    }
+
+    .figma-section h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .figma-inline-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 100%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .figma-inline-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .figma-button-group {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .btn-figma {
+      display: inline-block;
+      padding: 12px 30px;
+      background: var(--accent-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .btn-figma:hover {
+      background: #0d5a47;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-figma-secondary {
+      background: transparent;
+      border: 2px solid var(--accent-color);
+      color: var(--accent-color);
+    }
+
+    .btn-figma-secondary:hover {
+      background: var(--accent-color);
+      color: white;
+    }
+
+    .modal-figma {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-figma.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content-figma {
+      background-color: white;
+      width: 90%;
+      height: 90vh;
+      border-radius: 8px;
+      position: relative;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .modal-close-figma {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--default-color);
+      cursor: pointer;
+      background: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1001;
+      transition: all 0.2s ease;
+    }
+
+    .modal-close-figma:hover {
+      background: #f0f0f0;
+      transform: scale(1.1);
+    }
+
+    .modal-content-figma iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .takeaway-box {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent-color);
+      margin: 20px 0;
+      line-height: 1.8;
+    }
+
+    .takeaway-box h4 {
+      color: var(--accent-color);
+      font-weight: 700;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .case-study-hero h2 {
+        font-size: 32px;
+      }
+
+      .problem-goal-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .persona-details {
+        grid-template-columns: 1fr;
+      }
+
+      .overview-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .figma-button-group {
+        flex-direction: column;
+      }
+
+      .btn-figma {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body class="portfolio-details-page">
+
+  <header id="header" class="header dark-background d-flex flex-column">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <div class="profile-img">
+      <img src="assets/img/my-profile.jpg" alt="" class="img-fluid rounded-circle">
+    </div>
+
+    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+      <h1 class="sitename">YUYANG's HOME</h1>
+    </a>
+
+    <div class="social-links text-center">
+      <a href="mailto:yy.ding.22@ucl.ac.uk" class="twitter"><i class="bi bi-envelope"></i></a>
+      <a href="https://github.com/ding9889" class="twitter"><i class="bi bi-github"></i></a>
+      <a href="https://www.linkedin.com/in/yuyang-ding-141996252/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="index.html"><i class="bi bi-house navicon"></i>Home</a></li>
+        <li><a href="index.html#research"><i class="bi bi-box-seam navicon"></i> Research</a></li>
+        <li><a href="index.html#cv"><i class="bi bi-file-earmark-person navicon"></i> CV </a></li>
+        <li><a href="index.html#demo"><i class="bi bi-joystick navicon"></i> Portfolio</a></li>
+        <li><a href="index.html#aboutme"><i class="bi bi-person navicon"></i> About me</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Does a Graph Worth a Thousand Words?</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Graphical Representations and Investor Decision-Making</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Case Study Hero -->
+    <section class="case-study-hero" data-aos="fade-up">
+      <div class="container">
+        <h2 style="color: white;">Does a Graph Worth a Thousand Words?</h2>
+        <p>Understanding the Impact of Graphical Representations on Investor Decision-Making</p>
+      </div>
+    </section>
+
+    <!-- Project Overview Section -->
+    <section class="section">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Project Overview</h2>
+        </div>
+
+        <div class="overview-grid">
+          <div class="overview-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon"><i class="bi bi-bank"></i></div>
+            <h4>Research Question</h4>
+            <p>Stock price charts are used extensively in financial markets. These charts increase the visual salience of the financial time-series data. Investors rely on these visualisations to understand market trends, to predict future movements, and to make financial decisions.</p>
+            <p><strong>How do graphical representations of financial data influence investor decision-making?</strong></p>
+          </div>
+
+          <div class="overview-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon"><i class="bi bi-clock-history"></i></div>
+            <h4>Project Duration</h4>
+            <p>January 2025 - June 2026</p>
+          </div>
+
+          <div class="overview-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon"><i class="bi bi-person-badge"></i></div>
+            <h4>My Role</h4>
+            <p>Researcher</p>
+          </div>
+
+          <div class="overview-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="icon"><i class="bi bi-list-check"></i></div>
+            <h4>Responsibilities</h4>
+            <p>Idea development, Literature Review, Experiment Design/Implementation, Participant Recruitment, Data Analysis, Report Writing</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Background, Problem, and Goal Section -->
+    <section class="section light-background">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Background</h2>
+        </div>
+
+        <div class="mb-5" data-aos="fade-up">
+          <p>Existing literature suggests mixed findings regarding the impact of graphical representations on investor decision-making:</p>
+          <ul>
+            <li><a href="https://pubsonline.informs.org/doi/epdf/10.1287/mnsc.30.5.533">Remus (1982)</a> found that participants with tabular representation lead to lower cost in a production scheduling task compared to their counterparts using graphical representations.</li>
+            <li><a href="https://journals.sagepub.com/doi/10.1509/jmkg.71.1.160?icid=int.sj-abstract.citing-articles.49">Lurie et al. (2007)</a> proposed a framework where an information representation can be evaluated by its visual perception and information context.</li>
+            <li><a href="https://psycnet.apa.org/record/2014-45454-001">Barr & Gold (2014)</a> suggested that redundant visual information can enhance group decisions.</li>
+            <li><a href="https://www.sciencedirect.com/science/article/pii/S0167268118302038">Nolte & Schneider (2018)</a> investigated participants’ reaction to stock price paths of specific shapes, and found that participants’ invested amount was influenced by more recent performance, whether the stock was in loss domain, and the amplitude of the price path, while controlling for the overall trend.</li>
+            <li><a href="https://www.sciencedirect.com/science/article/pii/S0378426621003022">Borsboom et al. (2022)</a> suggested that short-term stock price charts increase human participants' trading frequency and decrease their performance.</li>
+          </ul>
+          <p>While the impact of graphical representations on investor behaviour is mixed, most literature argues that the key is the graphical representation increase visual salience of certain information in the financial time-series data.</p>
+          <p>Thereby, we specifically aim to investigate the role of regret. Existing studies have shown that regret can lead to biased decision-making, and we are interested in whether the effect of regret differs between graphical and numerical representations.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- User Research Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Task</h2>
+        </div>
+
+        <div data-aos="fade-up">
+          <p>We designed a straightforward investment task to examine the impact of graphical representations.</p>
+          <p>To ensure participants' performance can be assessed under a theoretical framework, we follow <a href="https://academic.oup.com/restud/article-abstract/76/3/1103/1591608">Oprea et al. (2009)</a> and set up an optimal stopping problem.</p>
+          <p>Participants were granted one share of a stock at the beginning of the experiment, the stock price follows a random walk, and participants can sell the stock at any time during the experiment. The stock price was more likely to increase than to decrease (<i>and participants were informed of this delightful fact</i>). Of course, we don't want participants to wait forever, nor to get a chance to sell their share at an insane price. Thus, the stock was set to randomly get delisted at any time with a fixed probability (<i>and participants were also informed of this sad fact</i>).</p>
+          <p>Let's skip the boring math here. In short, the theory suggests that one can maximise their payoff by holding the asset as long as the current value is below a certain threshold. Once the price reach or exceed this threshold, one shall sell their share immediately.</p>
+          <p>Feel free to click the button below to give it a try and see if you can figure out the optimal strategy!</p>
+          <p><i>Your data will be presented after the last trial and will <b>NOT</b> be recorded. To retake the experiment, simply refresh the tab that contains the demo.</i></p>
+        </div>
+
+        <button onclick="window.open('./demo-graph-number.html', '_blank').focus();" class="jspsych-btn demo-restart-button"
+        style="margin-top: 16px; padding: 8px 16px; font-size: 16px; cursor: pointer;">
+          Run the Demo in a New Tab
+        </button>
+  
+      </div>
+    </section>
+
+    <!-- Testing the Design Section -->
+    <section class="section light-background">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Participants</h2>
+        </div>
+
+        <div data-aos="fade-up" style="margin-bottom: 40px;">
+          <p>After finalising the design, we recruited participants from <a href="https://www.prolific.com">Prolific</a>. The study was approved by UCL Research Ethics Committee (Ref: EP/2023/012).</p>
+          <p>Participants were paid £3 for showing up, plus a performance-based bonus. At the end of the experiment, one of the trial was randomly selected, and participants received a bonus equals to their performance in that trial.</p>
+          <p>Participants were randomly assigned to two groups: Graph vs. Number.</p> 
+          <p>The graph group saw the interface as shown in the demo above, while the number group saw a similar interface but without the stock price chart.</p>
+        </div>
+
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="metric-card">
+              <div class="metric-icon"><i class="bi bi-people-fill"></i></div>
+              <div class="metric-value">120</div>
+              <div class="metric-label">Participants</div>
+              <p style="font-size: 13px; margin-top: 10px;">UK residents, Fluent in English, Aged 18-65; 60 in each group</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="metric-card">
+              <div class="metric-icon"><i class="bi bi-clock"></i></div>
+              <div class="metric-value">Approx. 30 min</div>
+              <div class="metric-label">Per Session</div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="metric-card">
+              <div class="metric-icon"><i class="bi bi-list-task"></i></div>
+              <div class="metric-value">60</div>
+              <div class="metric-label">Trials</div>
+              <p style="font-size: 13px; margin-top: 10px;">2 High vs. Low Initial price by 2 Parameter Sets factorial design</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="metric-card">
+              <div class="metric-icon"><i class="bi bi-graph-up"></i></div>
+              <div class="metric-value">3</div>
+              <div class="metric-label">KPIs Tracked</div>
+              <p style="font-size: 13px; margin-top: 10px;">Optimal-observed gap; Response time; Likelihood of stop</p>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- Refining the Design Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Behavioural Analysis</h2>
+        </div>
+        <h4 style="margin-top: 50px; margin-bottom: 30px;" data-aos="fade-up">Linear Regression</h4>
+        <div data-aos="fade-up" style="margin-bottom: 40px;">
+          <p>T-test results (\(\beta = -0.338, p < .001\)) confirm that participants generally stopped below the optimal stopping threshold regardless of the treatment condition.</p>
+          <p>The figure below presents participants' stopping behavior across conditions, green/red representing the continue/stop region. Optimal participants shall wait in the green region and sell immediately when the price reaches the red region for the first time:</p>
+          <div>
+            <embed src="assets/img/portfolio-figure1.pdf" type="application/pdf" width="100%" height="550px">
+          </div>
+          <p>We then regress the relative difference between the optimal and observed stopping price on the treatment:</p>
+          $$
+            \begin{aligned}
+            RDiff_{i,j} = \beta_0 &+ \beta_1 Graph_j + \beta_2 Long_j + \beta_3 High_{i,j} + Control_j + Block_{i,j} + \epsilon_{i,j}
+            \end{aligned}
+          $$
+          <p>
+            \(RDiff_{i,j}\) represents the relative difference between the optimal and observed stopping prices for trial \(i\) of participant \(j\), \(RDiff_{i,j} = (Optimal_{i,j} - Observed_{i,j})/Optimal_{i,j}\). \(Graph_j\) indicates whether participant \(j\) was assigned to the graph treatment, \(Long_j\) indicates whether participant \(j\) was assigned to the long parameter set, and \(High_{i,j}\) indicates whether the initial price of trial \(i\) for participant \(j\) was high. \(Control_j\) includes participants' demographic information (age, gender, self-reported investment experience, and self-reported financial literacy), and \(Block_{i,j}\) controls for the practice effect.
+          </p>
+          <p>Results show that participants in the graph group stopped significantly closer to the optimal stopping price compared to those in the number group by 2.5% (\(\beta = 0.025, p < .05\)).</p>
+          <p>We also run similar regressions for log-transformed response time and the variability of stopping price within each participant, and no significant effects were found (\(ps > .05\)).</p>
+          <p>Hmmm...Seems like the stock price chart help participants make better decisions in our tasks.</p>
+          <p>Is that so?</p>
+        </div>
+
+        <h4 style="margin-top: 50px; margin-bottom: 30px;" data-aos="fade-up">Survival Analyses</h4>
+        <p>Now, we already know people making investment decisions differently facing stock price charts and facing the financial time-series in number only. But what causes this?</p>
+        <p>As mentioned at the beginning, our hypothesis is regret. Specifically, the visual salience provided by the stock price chart make participants regret more about missing a peak</p>
+        <p>We had a direct investigation of how the likelihood of participants stopping varied over time using a Cox model.</p>
+        <p>Cox models (fall in the family of survival analysis) are commonly used in medical research to analyse time-to-event data. For example, to analyse the likelihood (hazard rate) of a patient experiencing an event (e.g., death) at a specific time point. The model assume a baseline hazard rate and how covariates (e.g., age, gender, receiving a treatment, etc.) affect this hazard rate.</p>
+        <p>In our case, the event of interest is the decision to stop. The figure below presents how the likelihood of stopping varies over time for different groups:</p>
+        <div>
+          <embed src="assets/img/portfolio-figure2.pdf" type="application/pdf" width="100%" height="585px">
+        </div>
+        <p>Results show that participants in the graph group are on average 10% less likely to stop compared to those in the number group at each time point (\(\text{HR} = 0.900\), \(95\% \text{ CI} = [0.838, 0.968]\), \(p < .001\)).</p>
+        <p><i>Note: HR stands for Hazard Ratio. HR indicates the ratio of hazard rates between two groups. HR > 1 indicates a higher likelihood of participants stopping compared to the reference group, while HR < 1 indicates a lower likelihood.</i></p>
+        <p>Remember we want to have a look at regret? To get a closer look at the role of regret, we further estimated a Cox model with time-varying covariates.</p>
+        <p>To fit the model, we discretised the raw response time data into intervals, and measured participants' regret levels by taking the momentary difference between the latest price and the historical peak price. We then estimate the below Cox Time-Varying Model:</p>
+        <p>
+        $$
+          \lambda(t|Z(t)) = \lambda_0(t)exp(\beta 'X + \gamma 'Xg(t))
+        $$
+        </p>
+        <p>Where \(\lambda(t|Z(t))\) is the hazard rate at time \(t\) given the covariates \(Z(t)\), \(\lambda_0(t)\) is the baseline hazard rate, \(X\) is a vector of time-invariant covariates (representation, initial price, parameter set, and control variables), and \(g(t)\) is a vector of time-varying covariates (momentary regret level and its interaction with representation).</p>
+        <p>Results reveal that participants without stock price charts were 4.9% less likely to stop as the distance between the latest price and the historical peak price increased by 1 times standard deviation (\(\text{HR} = 0.951\), \(95\% \text{ CI} = [0.938, 0.965]\), \(p < .001\)). Meanwhile, participants with stock price charts were 5.2% less likely to stop (\(\text{HR} = 0.948\), \(95\% \text{ CI} = [0.922, 0.974]\), \(p < .001\)). Most importantly, participants with stock price charts showed a 7.8% reduction in the likelihood of stopping as regret increased by 1 times standard deviation (\(\text{HR} = 0.970\), \(95\% \text{ CI} = [0.953, 0.987]\), \(p < .001\)).</p>
+
+     
+      </div>
+    </section>
+
+    <!-- Going Forward Section -->
+    <section class="section light-background">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Going Forward</h2>
+        </div>
+
+        <h3 style="margin-top: 40px; margin-bottom: 30px;" data-aos="fade-up">Key Takeaways</h3>
+
+        <div class="takeaway-box" data-aos="fade-up" data-aos-delay="100">
+          <h4>Charts do not always help</h4>
+          <p>Stock price charts can provide visual salience of patterns in financial time-series. However, this additional salience can systematically bias human agents' behaviour (e.g., slower decisions). Our findings largely align with existing literature on the impact of graphical representations. For instance, peak prices may be less salient in log-scale.</p>
+        </div>
+
+        <div class="takeaway-box" data-aos="fade-up" data-aos-delay="200">
+          <h4>Regret is not always your enemy</h4>
+          <p>Ironically, participants' significant regret aversion actually improve their performance in the task, since participants generally stopped below the optimal stopping threshold. This reveal an important context-dependent effect of regret. In certain scenarios, regret-aversion, though labelled as a behavioural bias, can offset participants' underperformance.</p>
+        </div>
+
+        <h3 style="margin-top: 50px; margin-bottom: 30px;" data-aos="fade-up">Next Steps</h3>
+
+        <div class="takeaway-box" data-aos="fade-up" data-aos-delay="100">
+          <h4>What about other charts?</h4>
+          <p>The current study focuses on the standard line chart, but it's worth exploring how other visualisations (e.g., candlestick charts, mountain charts, stock price charts in log space, etc.) influence investor behaviour.</p>
+        </div>
+
+        <div class="takeaway-box" data-aos="fade-up" data-aos-delay="200">
+          <h4>What about other behavioural biases?</h4>
+          <p>The current study focuses on regret aversion. Real world investors have a much longer list of behavioural biases that influence their decision-making. It is worth investigating how other biases interact with graphical representations of stock prices.</p>
+        </div>
+
+        <div class="takeaway-box" data-aos="fade-up" data-aos-delay="300">
+          <h4>AI + Financial Advisor?</h4>
+          <p>Investment decisions used to be a complex process, but with the assistance of AI, investment seems to be much easier. Our findings imply that the information representation can significantly impact human decision-making by shifting their attention and increasing certain behavioural biases. It is plausible that the UI of AI tools will play a crucial role in shaping how investors interact with AI tools and make investment decisions. Ultimately, a simple change in the UI could have a significant impact on human well-being. Thus, it is important to scrutinise the representation of information in AI-driven financial advisory tools to ensure AI helps real-life investors make healthy and wise decisions.</p>
+        </div>
+        <p>
+          <i>
+            Manuscript in preparation. Full working paper available upon request.
+          </i>
+        </p>
+      </div>
+    </section>
+
+
+  </main>
+
+  <footer id="footer" class="footer position-relative light-background">
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">iPortfolio</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Figma Modal Scripts -->
+  <script>
+    function openFigmaModal() {
+      const modal = document.getElementById('figmaModal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeFigmaModal() {
+      const modal = document.getElementById('figmaModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    window.addEventListener('click', function (event) {
+      const modal = document.getElementById('figmaModal');
+      if (event.target === modal) {
+        closeFigmaModal();
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        closeFigmaModal();
+      }
+    });
+  </script>
+
+</body>
+
+</html>
